@@ -20,7 +20,6 @@ const RellenarListaDeTipos=(data)=>{
 listaTipos.addEventListener('change',()=>{
     const tipo = listaTipos.value;
 
-
     fetch(`${RutaBase}type/${tipo}`)
     .then((Response)=>Response.json(Response))
     .then((data)=>IterarPokemonsDeUnTipo(data,tipo))
@@ -54,16 +53,21 @@ const mostrarInfoPokemons=(data,tipo)=>{
     nombrePokemon.textContent=data.name;
     nombrePokemon.className='nombrePokemon';
 
+    //NUMERO DE POKEDEX
+    const numeroPokedex = document.createElement('p')
+    numeroPokedex.className='numPokedex';
+    numeroPokedex.textContent=`N° ${data.id}`;
+
     ///INCLUIMOS AL INDEX
     cajaPokemons.appendChild(divPorPokemon)
     divPorPokemon.appendChild(imgPokemon)
     divPorPokemon.appendChild(nombrePokemon)
+    divPorPokemon.appendChild(numeroPokedex)
 
     //STATS DEL POKEMON
     const divStats = document.createElement('div');
     divPorPokemon.appendChild(divStats);
     const parrafoStats = document.createElement('p');
-
 
     for(let i=0; i<data.stats.length; i++){
         

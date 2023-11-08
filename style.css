@@ -56,8 +56,11 @@ select{
 }
 .nombrePokemon{
     font-size: 2rem;
+    padding-bottom: 0.5rem;
 }
-
+.numPokedex{
+    font-size: 1.3rem;
+}
 
 /*COLORES DE FONDO SEGUN EL TIPO*/
 .normal{
