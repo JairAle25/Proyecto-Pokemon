@@ -46,9 +46,16 @@ const mostrarInfoPokemons=(data,tipo)=>{
     ///IMAGEN POKEMON
     const imgPokemon = document.createElement('img')
     const urlImagen=data.sprites.other['official-artwork'].front_default;
-    const urlImagenFinal = urlImagen.replace("https://raw.githubusercontent.com/PokeAPI/sprites/master/","");
+    let urlImagenFinal="";
+    if(urlImagen.length>105){
+        urlImagenFinal = urlImagen.replace("https://raw.githubusercontent.com/PokeAPI/sprites/master/","");
+    }
+    else{
+        urlImagenFinal = urlImagen
+    }
     imgPokemon.loading='lazy';
     imgPokemon.src=urlImagenFinal;
+    
     //NOMBRE DEL POKEMON
     const nombrePokemon = document.createElement('h2');
     nombrePokemon.textContent=data.name;
