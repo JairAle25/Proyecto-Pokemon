@@ -46,9 +46,9 @@ const mostrarInfoPokemons=(data,tipo)=>{
     ///IMAGEN POKEMON
     const imgPokemon = document.createElement('img')
     const urlImagen=data.sprites.other['official-artwork'].front_default;
-    imgPokemon.src=urlImagen;
+    const urlImagenFinal = urlImagen.replace("https://raw.githubusercontent.com/PokeAPI/sprites/master/","");
     imgPokemon.loading='lazy';
-
+    imgPokemon.src=urlImagenFinal;
     //NOMBRE DEL POKEMON
     const nombrePokemon = document.createElement('h2');
     nombrePokemon.textContent=data.name;
